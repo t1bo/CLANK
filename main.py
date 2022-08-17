@@ -3,6 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import telegram_send
 from datetime import datetime
 import time
+import requests, json
 
 anniversaire = 1
 day = datetime.now().strftime('%A')
