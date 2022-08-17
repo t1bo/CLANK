@@ -39,10 +39,11 @@ def weather_valence():
        # weather report
        report = data['weather']
        print(f"{CITY:-^30}")
-       print(f"Temperature: {temperature}")
-       print(f"Humidity: {humidity}")
-       print(f"Pressure: {pressure}")
-       print(f"Weather Report: {report[0]['description']}")
+       telegram_send.send(messages=[f"A Valence il fait actuellement {temperature} degrees avec un temps dit {report[0]['description']}]")
+       #print(f"Temperature: {temperature}")
+       #print(f"Humidity: {humidity}")
+       #print(f"Pressure: {pressure}")
+       #print(f"Weather Report: {report[0]['description']}")
     else:
        # showing the error message
        print("Error in the HTTP request")
@@ -52,7 +53,7 @@ def weather_valence():
         
         
         
- def weather_valence():
+ def weather_romans():
     # base URL
     BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
     CITY = "Romans-Sur-Isere"
@@ -76,18 +77,20 @@ def weather_valence():
        # weather report
        report = data['weather']
        print(f"{CITY:-^30}")
-       print(f"Temperature: {temperature}")
-       print(f"Humidity: {humidity}")
-       print(f"Pressure: {pressure}")
-       print(f"Weather Report: {report[0]['description']}")
+       telegram_send.send(messages=[f"A Romans il fait actuellement {temperature} degrees avec un temps dit {report[0]['description']}]")
+       #print(f"Temperature: {temperature}")
+       #print(f"Humidity: {humidity}")
+       #print(f"Pressure: {pressure}")
+       #print(f"Weather Report: {report[0]['description']}")
     else:
        # showing the error message
        print("Error in the HTTP request")
 
 while True:
 
-    time.sleep(3)
-    
+    time.sleep()
+    weather_valence(3600)
+    weather_romans(3600)
     
     
     if date == '18-08':
